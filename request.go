@@ -188,6 +188,7 @@ type SnapReq struct {
 	EnabledPayments    []PaymentType      `json:"enabled_payments"`
 	Items              *[]ItemDetail      `json:"item_details,omitempty"`
 	CustomerDetail     *CustDetail        `json:"customer_details,omitempty"`
+	Expiry             *Expiry            `json:"expire,omitempty"`
 	CreditCard         *CreditCardDetail  `json:"credit_card,omitempty"`
 	CustomField1       string             `json:"custom_field1"`
 	CustomField2       string             `json:"custom_field2"`
@@ -198,4 +199,10 @@ type SnapReq struct {
 type CaptureReq struct {
 	TransactionID string  `json:"transaction_id"`
 	GrossAmt      float64 `json:"gross_amount"`
+}
+
+// Expiry : Payment expire
+type Expiry struct {
+	Unit     string `json:"unit"`
+	Duration int    `json:"duration"`
 }
